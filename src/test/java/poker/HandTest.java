@@ -13,7 +13,7 @@ public class HandTest extends TestCase {
 
 	}
 
-	public void testAdd(String str) {
+	public void testAdd() {
 		Hand p1 = new Hand();
 
 		assertEquals(0, p1.size());
@@ -29,7 +29,7 @@ public class HandTest extends TestCase {
 		assertEquals(4, p1.size());
 	}
 
-	public void testGet(int pos) {
+	public void testGet() {
 		Hand p1 = new Hand();
 
 		assertEquals(0, p1.size());
@@ -51,7 +51,7 @@ public class HandTest extends TestCase {
 		assertEquals("second", p1.get(3));
 	}
 
-	public void testRemove(int pos) {
+	public void testRemove() {
 		Hand p1 = new Hand();
 		assertEquals(0, p1.size());
 
