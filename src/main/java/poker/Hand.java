@@ -26,5 +26,14 @@ public class Hand {
 		hand.remove(i);
 	}
 	
+	public void removeAll() {
+		hand.clear();
+	}
+	
+	public boolean validHand(Hand h) {
+		if (h.size() == 5)
+			return true;
+		return false;
+	}
 	
 }

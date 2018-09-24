@@ -101,7 +101,7 @@ public class HandTest extends TestCase {
 	public void testValidHand() {
 		Hand p1 = new Hand();
 		//check too see if it catches an error when the user has no cards
-		assertEquals(false, p1.validHand());
+		assertEquals(false, p1.validHand(p1));
 		
 		//adding 5 cards
 		p1.add("first");
@@ -110,16 +110,16 @@ public class HandTest extends TestCase {
 		p1.add(0, "newFirst");
 		
 		//check too see if it catches an error when the user has 4 cards
-		assertEquals(false, p1.validHand());
+		assertEquals(false, p1.validHand(p1));
 		
 		p1.add("a");
 		
 		//check to make sure 5 cards are in the user hand
-		assertEquals(false, p1.validHand());
+		assertEquals(false, p1.validHand(p1));
 		
 		p1.add("b");
 		//check too see if it catches an error when the user has 6 cards
-		assertEquals(false, p1.validHand());
+		assertEquals(false, p1.validHand(p1));
 	}
 
 }
