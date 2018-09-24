@@ -77,7 +77,7 @@ public class HandTest extends TestCase {
 		p1.remove(5);
 		assertEquals(5, p1.size());
 	}
-	
+
 	public void testRemoveAll() {
 		Hand p1 = new Hand();
 		assertEquals(0, p1.size());
@@ -92,36 +92,36 @@ public class HandTest extends TestCase {
 		p1.add("d");
 
 		assertEquals(8, p1.size());
-		//remove all items in the hand
+		// remove all items in the hand
 		p1.removeAll();
 		assertEquals(0, p1.size());
 
 	}
-	
+
 	public void testValidHand() {
 		Hand p1 = new Hand();
-		//check too see if it catches an error when the user has no cards
+		// check too see if it catches an error when the user has no cards
 		assertEquals(false, p1.validHand(p1));
-		
-		//adding 5 cards
+
+		// adding 5 cards
 		p1.add("first");
 		p1.add("second");
 		p1.add(1, "middle");
 		p1.add(0, "newFirst");
-		
-		//check too see if it catches an error when the user has 4 cards
+
+		// check too see if it catches an error when the user has 4 cards
 		assertEquals(false, p1.validHand(p1));
-		
+
 		p1.add("a");
-		
-		//check to make sure 5 cards are in the user hand
+
+		// check to make sure 5 cards are in the user hand
 		assertEquals(true, p1.validHand(p1));
-		
+
 		p1.add("b");
-		//check too see if it catches an error when the user has 6 cards
+		// check too see if it catches an error when the user has 6 cards
 		assertEquals(false, p1.validHand(p1));
 	}
-	
+
 	public void testGetSuit() {
 		Hand p1 = new Hand();
 		assertEquals(0, p1.size());
@@ -135,7 +135,7 @@ public class HandTest extends TestCase {
 		p1.add("H1");
 		assertEquals("H", p1.getSuit(p1.get(3)));
 	}
-	
+
 	public void testGetValue() {
 		Hand p1 = new Hand();
 		assertEquals(0, p1.size());
@@ -152,8 +152,5 @@ public class HandTest extends TestCase {
 		assertEquals(13, p1.getValue(p1.get(4)));
 		p1.add("HA");
 		assertEquals(14, p1.getValue(p1.get(5)));
-		
-		
 	}
-
 }
