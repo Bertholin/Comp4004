@@ -115,7 +115,7 @@ public class HandTest extends TestCase {
 		p1.add("a");
 		
 		//check to make sure 5 cards are in the user hand
-		assertEquals(false, p1.validHand(p1));
+		assertEquals(true, p1.validHand(p1));
 		
 		p1.add("b");
 		//check too see if it catches an error when the user has 6 cards
