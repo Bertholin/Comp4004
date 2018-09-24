@@ -44,17 +44,19 @@ public class Hand {
 		String val = s.substring(1);
 
 		if (val.equals("A")) {
-
+			return 14;
 		} else if (val.equals("K")) {
-
+			return 13;
 		} else if (val.equals("Q")) {
-
+			return 12;
 		} else if (val.equals("J")) {
-
+			return 11;
 		} else {
 			return Integer.parseInt(val);
 		}
-		return -1;
 	}
 
 }
+
+// for multiple cards maybe use a dictionary
+// dictionary (ace , 1)

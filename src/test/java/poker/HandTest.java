@@ -147,11 +147,11 @@ public class HandTest extends TestCase {
 		p1.add("CJ");
 		assertEquals(11, p1.getValue(p1.get(2)));
 		p1.add("CQ");
-		assertEquals(12, p1.getValue(p1.get(2)));
+		assertEquals(12, p1.getValue(p1.get(3)));
 		p1.add("HK");
-		assertEquals(13, p1.getValue(p1.get(3)));
+		assertEquals(13, p1.getValue(p1.get(4)));
 		p1.add("HA");
-		assertEquals(14, p1.getValue(p1.get(3)));
+		assertEquals(14, p1.getValue(p1.get(5)));
 		
 		
 	}
