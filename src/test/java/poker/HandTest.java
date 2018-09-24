@@ -121,5 +121,39 @@ public class HandTest extends TestCase {
 		//check too see if it catches an error when the user has 6 cards
 		assertEquals(false, p1.validHand(p1));
 	}
+	
+	public void testGetSuit() {
+		Hand p1 = new Hand();
+		assertEquals(0, p1.size());
+
+		p1.add("S1");
+		assertEquals("S", p1.getSuit(p1.get(0)));
+		p1.add("D1");
+		assertEquals("D", p1.getSuit(p1.get(1)));
+		p1.add("C1");
+		assertEquals("C", p1.getSuit(p1.get(2)));
+		p1.add("H1");
+		assertEquals("H", p1.getSuit(p1.get(3)));
+	}
+	
+	public void testGetValue() {
+		Hand p1 = new Hand();
+		assertEquals(0, p1.size());
+
+		p1.add("S3");
+		assertEquals(3, p1.getValue(p1.get(0)));
+		p1.add("D10");
+		assertEquals(10, p1.getValue(p1.get(1)));
+		p1.add("CJ");
+		assertEquals(11, p1.getValue(p1.get(2)));
+		p1.add("CQ");
+		assertEquals(12, p1.getValue(p1.get(2)));
+		p1.add("HK");
+		assertEquals(13, p1.getValue(p1.get(3)));
+		p1.add("HA");
+		assertEquals(14, p1.getValue(p1.get(3)));
+		
+		
+	}
 
 }
