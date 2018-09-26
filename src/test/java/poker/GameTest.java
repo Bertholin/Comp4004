@@ -1,6 +1,8 @@
 package poker;
 
-public class GameTest {
+import junit.framework.TestCase;
+
+public class GameTest extends TestCase{
 	public void testFiveOfAKind() {
 		
 	}
@@ -45,8 +47,7 @@ public class GameTest {
 		game.AIHand.add("DK");
 		game.AIHand.add("DJ");
 		assertEquals(true, game.isFlush(game.hand));
-		
-		
+
 	}
 	
 	public void testStraight() {

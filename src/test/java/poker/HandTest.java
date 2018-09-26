@@ -3,28 +3,6 @@ package poker;
 import junit.framework.TestCase;
 
 public class HandTest extends TestCase {
-	
-	public void testopenFile() {
-		Hand hand = new Hand();
-		assertEquals(true, hand.openFile("cards.txt"));
-	}
-	
-	public void testCloseFile() {
-		Hand hand = new Hand();
-		assertEquals(true, hand.closeFile("cards.txt"));
-	}
-	
-	public void testDraw() {
-		Hand hand = new Hand();
-		hand.openFile("");
-		
-		hand.add(hand.draw());
-		hand.add(hand.draw());
-		hand.add(hand.draw());
-		
-		assertEquals(3, hand.size());
-		hand.close();
-	}
 
 	public void testSize() {
 		Hand p1 = new Hand();
