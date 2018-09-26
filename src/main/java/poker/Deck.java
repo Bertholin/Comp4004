@@ -8,13 +8,14 @@ public class Deck {
 	Scanner sc;
 
 	public boolean openFile(String s) {
-		File file = new File("src/main/resoures/" + s);
+		File file = new File("src/main/resources/" + s);
 		
 		try {
-			Scanner sc = new Scanner(file);
+			 sc = new Scanner(file);
 			
 			return true;
 		}catch (FileNotFoundException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -27,6 +28,6 @@ public class Deck {
 	
 	public String  draw() {
 		
-		return "";
+		return sc.nextLine();
 	}
 }
