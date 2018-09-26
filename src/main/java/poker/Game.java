@@ -6,6 +6,8 @@ import java.util.*;
 public class Game {
 
 	Scanner sc = null;
+	Hand hand = new Hand();
+	Hand AIHand = new Hand();
 
 	public void draw(int num) {
 
