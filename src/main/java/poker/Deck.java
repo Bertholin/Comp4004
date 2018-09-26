@@ -8,7 +8,7 @@ public class Deck {
 	Scanner sc;
 
 	public boolean openFile(String s) {
-		File file = new File(s);
+		File file = new File("src/main/resoures/" + s);
 		
 		try {
 			Scanner sc = new Scanner(file);
