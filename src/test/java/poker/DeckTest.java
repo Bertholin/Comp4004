@@ -10,7 +10,7 @@ public class DeckTest extends TestCase{
 
 	public void testCloseFile() {
 		Deck deck = new Deck();
-		assertEquals(true, deck.closeFile());
+		assertEquals("Closed", deck.closeFile());
 	}
 
 	public void testDraw() {

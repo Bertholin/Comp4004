@@ -19,12 +19,14 @@ public class Deck {
 		}
 	}
 	
-	public boolean closeFile() {
-		sc.close();
+	public String closeFile() {
 		
+		sc.close();
+		return "Closed";
 	}
 	
-	public void  draw() {
+	public String  draw() {
 		
+		return "";
 	}
 }
