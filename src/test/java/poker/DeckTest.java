@@ -2,7 +2,7 @@ package poker;
 
 import junit.framework.TestCase;
 
-public class DeckTest extends TestCase{
+public class DeckTest extends TestCase {
 	public void testopenFile() {
 		Deck deck = new Deck();
 		assertEquals(true, deck.openFile("cards.txt"));
@@ -28,10 +28,10 @@ public class DeckTest extends TestCase{
 
 		assertEquals(5, hand.size());
 		assertEquals("SA", hand.get(0));
-		assertEquals("S2", hand.get(1));
-		assertEquals("S3", hand.get(2));
-		assertEquals("S4", hand.get(3));
-		assertEquals("S5", hand.get(4));
+		assertEquals("CA", hand.get(1));
+		assertEquals("S4", hand.get(2));
+		assertEquals("D8", hand.get(3));
+		assertEquals("H4", hand.get(4));
 		deck.closeFile();
 	}
 }
