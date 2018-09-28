@@ -46,8 +46,10 @@ public class GameTest extends TestCase{
 	}
 	
 	public void testHighCard() {
-		String highest = ""; 
+		Game game = new Game();
+		Deck d = new Deck();
 		
+		String highest = ""; 
 		
 	}
 	
