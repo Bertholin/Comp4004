@@ -6,14 +6,8 @@ public class DeckTest extends TestCase {
 	public void testopenFile() {
 		Deck deck = new Deck();
 		assertEquals(true, deck.openFile("cards.txt"));
-		deck.closeFile();
 	}
 
-	public void testCloseFile() {
-		Deck deck = new Deck();
-		deck.openFile("cards.txt");
-		assertEquals("Closed", deck.closeFile());
-	}
 
 	public void testDraw() {
 		Deck deck = new Deck();
@@ -32,6 +26,5 @@ public class DeckTest extends TestCase {
 		assertEquals("S4", hand.get(2));
 		assertEquals("D8", hand.get(3));
 		assertEquals("H4", hand.get(4));
-		deck.closeFile();
 	}
 }

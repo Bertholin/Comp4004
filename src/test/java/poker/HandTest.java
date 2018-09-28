@@ -29,7 +29,6 @@ public class HandTest extends TestCase {
 		p1.add(0, d.draw());
 
 		assertEquals(4, p1.size());
-		d.closeFile();
 	}
 
 	public void testGet() {
@@ -54,7 +53,6 @@ public class HandTest extends TestCase {
 		assertEquals("S4", p1.get(2));
 		// get the last element
 		assertEquals("CA", p1.get(3));
-		d.closeFile();
 	}
 
 	public void testRemove() {
@@ -83,7 +81,6 @@ public class HandTest extends TestCase {
 		// removing last
 		p1.remove(5);
 		assertEquals(5, p1.size());
-		d.closeFile();
 	}
 
 	public void testRemoveAll() {
@@ -128,7 +125,6 @@ public class HandTest extends TestCase {
 		p1.add(d.draw());
 		// check too see if it catches an error when the user has 6 cards
 		assertEquals(false, p1.validHand(p1));
-		d.closeFile();
 	}
 
 	public void testGetSuit() {
@@ -144,7 +140,6 @@ public class HandTest extends TestCase {
 		assertEquals("S", p1.getSuit(p1.get(2)));
 		p1.add(d.draw());
 		assertEquals("D", p1.getSuit(p1.get(3)));
-		d.closeFile();
 	}
 
 	public void testGetValue() {

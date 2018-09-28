@@ -16,18 +16,13 @@ public class Deck {
 			 
 			 for(String c : cards)
 				 deck.add(c);
+			 sc.close();
 			return true;
 			
 		}catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return false;
 		}
-	}
-	
-	public String closeFile() {
-		
-		sc.close();
-		return "Closed";
 	}
 	
 	public String  draw() {
