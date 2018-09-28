@@ -15,54 +15,61 @@ public class HandTest extends TestCase {
 
 	public void testAdd() {
 		Hand p1 = new Hand();
+		Deck d = new Deck();
+		d.openFile("cards.txt");
 
 		assertEquals(0, p1.size());
 		// adding to an empty list
-		p1.add("first");
+		p1.add(d.draw());
 		// adding to existing or end of list list
-		p1.add("second");
+		p1.add(d.draw());
 		// adding to the middle of the list
-		p1.add(1, "middle");
+		p1.add(1, d.draw());
 		// adding to the beginning of the list
-		p1.add(0, "newFirst");
+		p1.add(0, d.draw());
 
 		assertEquals(4, p1.size());
+		d.closeFile();
 	}
 
 	public void testGet() {
 		Hand p1 = new Hand();
+		Deck d = new Deck();
+		d.openFile("cards.txt");
 
 		assertEquals(0, p1.size());
 
-		p1.add("first");
-		p1.add("second");
-		p1.add(1, "middle");
-		p1.add(0, "newFirst");
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(1, d.draw());
+		p1.add(0, d.draw());
 
 		assertEquals(4, p1.size());
 
 		// testing the get function
 
 		// get the front
-		assertEquals("newFirst", p1.get(0));
+		assertEquals("D8", p1.get(0));
 		// get a middle element
-		assertEquals("middle", p1.get(2));
+		assertEquals("S4", p1.get(2));
 		// get the last element
-		assertEquals("second", p1.get(3));
+		assertEquals("CA", p1.get(3));
+		d.closeFile();
 	}
 
 	public void testRemove() {
 		Hand p1 = new Hand();
-		assertEquals(0, p1.size());
+		Deck d = new Deck();
+		d.openFile("cards.txt");
 
-		p1.add("first");
-		p1.add("second");
-		p1.add(1, "middle");
-		p1.add(0, "newFirst");
-		p1.add("a");
-		p1.add("b");
-		p1.add("c");
-		p1.add("d");
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(1, d.draw());
+		p1.add(0, d.draw());
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(d.draw());
 
 		assertEquals(8, p1.size());
 		// testing removing first
@@ -76,20 +83,22 @@ public class HandTest extends TestCase {
 		// removing last
 		p1.remove(5);
 		assertEquals(5, p1.size());
+		d.closeFile();
 	}
 
 	public void testRemoveAll() {
 		Hand p1 = new Hand();
-		assertEquals(0, p1.size());
+		Deck d = new Deck();
+		d.openFile("cards.txt");
 
-		p1.add("first");
-		p1.add("second");
-		p1.add(1, "middle");
-		p1.add(0, "newFirst");
-		p1.add("a");
-		p1.add("b");
-		p1.add("c");
-		p1.add("d");
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(1, d.draw());
+		p1.add(0, d.draw());
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(d.draw());
 
 		assertEquals(8, p1.size());
 		// remove all items in the hand
@@ -100,57 +109,60 @@ public class HandTest extends TestCase {
 
 	public void testValidHand() {
 		Hand p1 = new Hand();
-		// check too see if it catches an error when the user has no cards
-		assertEquals(false, p1.validHand(p1));
+		Deck d = new Deck();
+		d.openFile("cards.txt");
 
-		// adding 5 cards
-		p1.add("first");
-		p1.add("second");
-		p1.add(1, "middle");
-		p1.add(0, "newFirst");
+		p1.add(d.draw());
+		p1.add(d.draw());
+		p1.add(1, d.draw());
+		p1.add(0, d.draw());
 
 		// check too see if it catches an error when the user has 4 cards
 		assertEquals(false, p1.validHand(p1));
 
-		p1.add("a");
+		p1.add(d.draw());
 
 		// check to make sure 5 cards are in the user hand
 		assertEquals(true, p1.validHand(p1));
 
-		p1.add("b");
+		p1.add(d.draw());
 		// check too see if it catches an error when the user has 6 cards
 		assertEquals(false, p1.validHand(p1));
+		d.closeFile();
 	}
 
 	public void testGetSuit() {
 		Hand p1 = new Hand();
-		assertEquals(0, p1.size());
+		Deck d = new Deck();
+		d.openFile("cards.txt");
 
-		p1.add("S1");
+		p1.add(d.draw());
 		assertEquals("S", p1.getSuit(p1.get(0)));
-		p1.add("D1");
-		assertEquals("D", p1.getSuit(p1.get(1)));
-		p1.add("C1");
-		assertEquals("C", p1.getSuit(p1.get(2)));
-		p1.add("H1");
-		assertEquals("H", p1.getSuit(p1.get(3)));
+		p1.add(d.draw());
+		assertEquals("C", p1.getSuit(p1.get(1)));
+		p1.add(d.draw());
+		assertEquals("S", p1.getSuit(p1.get(2)));
+		p1.add(d.draw());
+		assertEquals("D", p1.getSuit(p1.get(3)));
+		d.closeFile();
 	}
 
 	public void testGetValue() {
 		Hand p1 = new Hand();
-		assertEquals(0, p1.size());
+		Deck d = new Deck();
+		d.openFile("cards.txt");
 
-		p1.add("S3");
-		assertEquals(3, p1.getValue(p1.get(0)));
-		p1.add("D10");
-		assertEquals(10, p1.getValue(p1.get(1)));
-		p1.add("CJ");
-		assertEquals(11, p1.getValue(p1.get(2)));
-		p1.add("CQ");
-		assertEquals(12, p1.getValue(p1.get(3)));
-		p1.add("HK");
-		assertEquals(13, p1.getValue(p1.get(4)));
-		p1.add("HA");
-		assertEquals(14, p1.getValue(p1.get(5)));
+		p1.add(d.draw());
+		assertEquals(14, p1.getValue(p1.get(0)));
+		p1.add(d.draw());
+		assertEquals(14, p1.getValue(p1.get(1)));
+		p1.add(d.draw());
+		assertEquals(4, p1.getValue(p1.get(2)));
+		p1.add(d.draw());
+		assertEquals(8, p1.getValue(p1.get(3)));
+		p1.add(d.draw());
+		assertEquals(4, p1.getValue(p1.get(4)));
+		p1.add(d.draw());
+		assertEquals(12, p1.getValue(p1.get(5)));
 	}
 }
