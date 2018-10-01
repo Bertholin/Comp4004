@@ -69,6 +69,7 @@ public class GameTest extends TestCase{
 		game.hand.removeAll();
 		game.AIHand.removeAll();
 		
+		System.out.println("\nPart 3");
 		//highest card last
 		game.hand.add(d.draw());
 		game.hand.add(d.draw());
@@ -78,11 +79,11 @@ public class GameTest extends TestCase{
 		assertEquals("D10", game.highestCard(game.hand));
 		
 		//multiple high cards gets results based on suit
-		game.hand.add(d.draw());
-		game.hand.add(d.draw());
-		game.hand.add(d.draw());
-		game.hand.add(d.draw());
-		game.hand.add(d.draw());
+		game.AIHand.add(d.draw());
+		game.AIHand.add(d.draw());
+		game.AIHand.add(d.draw());
+		game.AIHand.add(d.draw());
+		game.AIHand.add(d.draw());
 		assertEquals("SK", game.highestCard(game.AIHand));
 		
 	}
