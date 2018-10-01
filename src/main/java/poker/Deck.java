@@ -33,4 +33,29 @@ public class Deck {
 		}
 		return card;
 	}
+	
+	public boolean openJustFile(String s) {
+		File file = new File("src/main/resources/" + s);
+		try {
+			sc = new Scanner(file);
+			String[] cards = sc.nextLine().split(" ");
+
+			for (String c : cards)
+				deck.add(c);
+			return true;
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public void getNextLine() {
+		if(sc.hasNext()) {
+			String[] cards = sc.nextLine().split(" ");
+
+			for (String c : cards)
+				deck.add(c);
+		}
+	}
 }
