@@ -23,12 +23,10 @@ public class Game {
 	public String highestCard(Hand h) {
 		String highest = h.get(0);
 		
-		for (int i = 1; i < h.size(); i++) {
-			System.out.println("The current highest is " + highest);
-			System.out.println("The next card is " + h.get(i));
-			if(h.getValue(highest) < h.getValue(h.get(i))) {
-				highest = h.get(i);
-			}else if (h.getValue(highest) == h.getValue(h.get(i))) {
+		for (int i = 0; i < h.size() - 1; ++i) {
+			if(h.getValue(h.get(i)) < h.getValue(h.get(i + 1))) {
+				highest = h.get(i + 1);
+			}else if (h.getValue(h.get(i)) == h.getValue(h.get(i + 1))) {
 				// 
 				System.out.println("There were two high cards");
 			}

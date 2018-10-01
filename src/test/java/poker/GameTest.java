@@ -77,13 +77,12 @@ public class GameTest extends TestCase{
 		game.hand.add(d.draw());
 		assertEquals("D10", game.highestCard(game.hand));
 		
-		System.out.println("\nPart 4");
 		//multiple high cards gets results based on suit
-		game.AIHand.add(d.draw());
-		game.AIHand.add(d.draw());
-		game.AIHand.add(d.draw());
-		game.AIHand.add(d.draw());
-		game.AIHand.add(d.draw());
+		game.hand.add(d.draw());
+		game.hand.add(d.draw());
+		game.hand.add(d.draw());
+		game.hand.add(d.draw());
+		game.hand.add(d.draw());
 		assertEquals("SK", game.highestCard(game.AIHand));
 		
 	}
