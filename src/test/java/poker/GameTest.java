@@ -49,7 +49,6 @@ public class GameTest extends TestCase{
 		Game game = new Game();
 		Deck d = new Deck();
 		d.openFile("highCard.txt");
-		String highest = ""; 
 		
 		//middle
 		game.hand.add(d.draw());

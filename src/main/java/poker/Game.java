@@ -19,4 +19,20 @@ public class Game {
 		}
 		return flush;
 	}
+	
+	public String highestCard(Hand h) {
+		String highest = h.get(0);
+		
+		for (int i = 0; i < h.size() - 1; ++i) {
+			if(h.getValue(h.get(i)) < h.getValue(h.get(i + 1))) {
+				highest = h.get(i + 1);
+			}else if (h.getValue(h.get(i)) == h.getValue(h.get(i + 1))) {
+				// 
+				System.out.println("There were two high cards");
+			}
+		}
+		
+		
+		return highest;
+	}
 }
