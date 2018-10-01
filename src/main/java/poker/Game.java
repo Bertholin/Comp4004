@@ -27,7 +27,7 @@ public class Game {
 			if(h.getValue(h.get(i)) < h.getValue(h.get(i + 1))) {
 				highest = h.get(i + 1);
 			}else if (h.getValue(h.get(i)) == h.getValue(h.get(i + 1))) {
-				// 
+				// S H D C    -> highest to lowest
 				System.out.println("There were two high cards");
 			}
 		}
