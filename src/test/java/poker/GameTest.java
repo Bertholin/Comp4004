@@ -22,7 +22,7 @@ public class GameTest extends TestCase{
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
-		assertEquals(false, game.isFlush(game.hand));
+		assertEquals(false, game.isFlush(game.AIHand));
 		
 		game.hand.removeAll();
 		game.AIHand.removeAll();
@@ -41,7 +41,7 @@ public class GameTest extends TestCase{
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
-		assertEquals(true, game.isFlush(game.hand));
+		assertEquals(true, game.isFlush(game.AIHand));
 
 	}
 	
