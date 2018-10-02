@@ -42,6 +42,7 @@ public class DeckTest extends TestCase {
 		assertEquals("",jpDeck.draw());
 		assertEquals(5, hand.size());
 	}
+	
 	public void testJPWayToDraw2() {
 		System.out.println("\nPart 2");
 		Hand hand = new Hand();
