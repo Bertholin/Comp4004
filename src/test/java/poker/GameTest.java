@@ -91,7 +91,7 @@ public class GameTest extends TestCase{
 	public void testFourOfAKind() {
 		Game game = new Game();
 		Deck d = new Deck();
-		d.openFile("highCard.txt");
+		d.openFile("fourOfAKind.txt");
 		
 		for( int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
@@ -113,7 +113,26 @@ public class GameTest extends TestCase{
 	}
 	
 	public void testThreeOfAKind() {
-		
+			Game game = new Game();
+			Deck d = new Deck();
+			d.openFile("threeOfAKind.txt");
+			
+			for( int i = 0; i < 5; ++i)
+				game.hand.add(d.draw());
+			
+			assertEquals(true, game.threeOfAKind(game.hand));
+			
+			game.hand.removeAll();
+			for( int i = 0; i < 5; ++i)
+				game.hand.add(d.draw());
+			
+			assertEquals(true, game.threeOfAKind(game.hand));
+			game.hand.removeAll();
+			
+			for( int i = 0; i < 5; ++i)
+				game.hand.add(d.draw());
+			
+			assertEquals(false, game.threeOfAKind(game.hand));
 	}
 	
 	
