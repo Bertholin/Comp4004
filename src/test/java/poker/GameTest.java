@@ -89,6 +89,26 @@ public class GameTest extends TestCase{
 	}
 	
 	public void testFourOfAKind() {
+		Game game = new Game();
+		Deck d = new Deck();
+		d.openFile("highCard.txt");
+		
+		for( int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		
+		assertEquals(true, game.fourOfAKind(game.hand));
+		
+		game.hand.removeAll();
+		for( int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		
+		assertEquals(true, game.fourOfAKind(game.hand));
+		game.hand.removeAll();
+		
+		for( int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		
+		assertEquals(false, game.fourOfAKind(game.hand));
 		
 	}
 	
