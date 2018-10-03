@@ -58,6 +58,7 @@ public class Game {
 	public boolean ofAKind(Hand h, int amount) {
 		int counter = 0;
 		for (int i = 0; i < 5; ++i) {
+			counter = 0;
 			for (int j = 0; j < 5; ++j) {
 				if (h.getValue(h.get(i)) == h.getValue(h.get(j)))
 					counter++;

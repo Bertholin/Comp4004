@@ -89,38 +89,29 @@ public class GameTest extends TestCase{
 	}
 	
 	public void testFourOfAKind() {
-		
-		System.out.println("\n\n\nFour of a kind");
 		Game game = new Game();
 		Deck d = new Deck();
 		d.openFile("fourOfAKind.txt");
 		
-		System.out.println("\nPart 1");
+		//first 4 are the same
 		for( int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
-		
-		for (int i = 0; i < game.hand.size();++i)
-			System.out.println(game.hand.get(i));
 		
 		assertEquals(true, game.ofAKind(game.hand, 4));
 		game.hand.removeAll();
 		
+		//last 4 are the same
 		System.out.println("\nPart 2");
 		for( int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		
-		for (int i = 0; i < game.hand.size();++i)
-			System.out.println(game.hand.get(i));
-		
 		assertEquals(true, game.ofAKind(game.hand, 4));
 		game.hand.removeAll();
 		
+		//there are only three in common
 		System.out.println("\nPart 3");
 		for( int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
-		
-		for (int i = 0; i < game.hand.size();++i)
-			System.out.println(game.hand.get(i));
 		
 		assertEquals(false, game.ofAKind(game.hand, 4));
 		
@@ -130,24 +121,27 @@ public class GameTest extends TestCase{
 			Game game = new Game();
 			Deck d = new Deck();
 			d.openFile("threeOfAKind.txt");
-			System.out.println("\n\n\nthree of a kind");
-			System.out.println("Part 1");
-			for( int i = 0; i < 5; ++i)
-				game.hand.add(d.draw());
 			
-			assertEquals(true, game.ofAKind(game.hand, 3));
-			
-			game.hand.removeAll();
+			//first three are the same
 			for( int i = 0; i < 5; ++i)
 				game.hand.add(d.draw());
 			
 			assertEquals(true, game.ofAKind(game.hand, 3));
 			game.hand.removeAll();
 			
+			//last three are the same
+			for( int i = 0; i < 5; ++i)
+				game.hand.add(d.draw());
+			
+			assertEquals(true, game.ofAKind(game.hand, 3));
+			game.hand.removeAll();
+			
+			//there are only two in common
 			for( int i = 0; i < 5; ++i)
 				game.hand.add(d.draw());
 			
 			assertEquals(false, game.ofAKind(game.hand, 3));
+	
 	}
 	
 	
