@@ -49,13 +49,10 @@ public class Deck {
 		System.out.println("The next line is there -> " + sc.hasNextLine());
 		if(sc.hasNextLine()) {
 			String[] cards = sc.nextLine().split(" ");
-			System.out.println("The first in card is " + cards[0]);
-			System.out.println("The first in card is " + cards[1]);
-			System.out.println("The first in card is " + cards[2]);
-			System.out.println("The first in card is " + cards[3]);
-			System.out.println("The first in card is " + cards[4]);
-			for (String c : cards)
+			for (String c : cards) {
 				deck.add(c);
+				System.out.println(c + "\n");
+			}
 			return true;
 		}
 		return false;
