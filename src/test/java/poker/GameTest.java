@@ -69,7 +69,6 @@ public class GameTest extends TestCase {
 		game.hand.removeAll();
 		game.AIHand.removeAll();
 
-		System.out.println("\nPart 3");
 		// highest card last
 		game.hand.add(d.draw());
 		game.hand.add(d.draw());
@@ -101,7 +100,6 @@ public class GameTest extends TestCase {
 		game.hand.removeAll();
 
 		// last 4 are the same
-		System.out.println("\nPart 2");
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 
@@ -109,7 +107,6 @@ public class GameTest extends TestCase {
 		game.hand.removeAll();
 
 		// there are only three in common
-		System.out.println("\nPart 3");
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 

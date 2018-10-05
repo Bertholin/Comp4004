@@ -26,13 +26,10 @@ public class Game {
 		String highest = h.get(0);
 
 		for (int i = 1; i < h.size(); i++) {
-			System.out.println("The current highest is " + highest);
-			System.out.println("The next card is " + h.get(i));
 			if (h.getValue(highest) < h.getValue(h.get(i))) {
 				highest = h.get(i);
 			} else if (h.getValue(highest) == h.getValue(h.get(i))) {
 				// S H D C -> highest to lowest
-				System.out.println("There were two high cards");
 				if (h.getSuit(h.get(i)).equals("S") || h.getSuit(highest).equals("S")) {
 					// if highest was a spade
 					if (h.getSuit(h.get(i)).equals("S")) {
