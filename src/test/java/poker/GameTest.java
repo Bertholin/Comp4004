@@ -168,6 +168,22 @@ public class GameTest extends TestCase {
 	}
 
 	public void testStraight() {
-
+		Game game = new Game();
+		Deck d = new Deck();
+		d.openFile("straight.txt");
+		assertEquals(true, game.isStraight(game.hand));
+		
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		
+		game.hand.removeAll();
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(true, game.isStraight(game.hand));
+		
+		game.hand.removeAll();
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isStraight(game.hand));
 	}
 }
