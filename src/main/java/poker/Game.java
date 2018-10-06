@@ -84,6 +84,17 @@ public class Game {
 				}
 		}
 		
+		for (int i = 0; i < 5; ++i) {
+			for (int j = 0; j < 5; ++j) {
+				if (min == h.getValue(h.get(j))) {
+					counter++;
+					min++;
+				}
+			}
+		}
+		
+		if (counter == 5)
+			return true;
 		
 		
 		return false;
