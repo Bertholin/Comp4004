@@ -140,7 +140,7 @@ public class GameTest extends TestCase {
 		assertEquals(false, game.ofAKind(game.hand, 3));
 
 	}
-	
+
 	public void testPair() {
 		Game game = new Game();
 		Deck d = new Deck();
@@ -171,19 +171,42 @@ public class GameTest extends TestCase {
 		Game game = new Game();
 		Deck d = new Deck();
 		d.openFile("straight.txt");
-		
+
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(true, game.isStraight(game.hand));
-		
+
 		game.hand.removeAll();
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(true, game.isStraight(game.hand));
-		
+
 		game.hand.removeAll();
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(false, game.isStraight(game.hand));
+	}
+
+	public void testStraightFlush() {
+		Game game = new Game();
+		Deck d = new Deck();
+		d.openFile("straightFlush.txt");
+
+		//flush
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isStraightFlush(game.hand));
+		game.hand.removeAll();
+		
+		//straight
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isStraightFlush(game.hand));
+		game.hand.removeAll();
+		
+		//straight flush
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(true, game.isStraightFlush(game.hand));
 	}
 }
