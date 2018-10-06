@@ -51,7 +51,7 @@ public class Deck {
 			String[] cards = sc.nextLine().split(" ");
 			for (String c : cards) {
 				deck.add(c);
-				System.out.println(c + "\n");
+				System.out.println(c);
 			}
 			return true;
 		}

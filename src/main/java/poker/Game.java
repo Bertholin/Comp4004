@@ -67,4 +67,25 @@ public class Game {
 		}
 		return false;
 	}
+	
+	public boolean isStraight(Hand h) {
+		int min = h.getValue(h.get(0));
+		int counter = 0;
+		
+		for( int i = 1; i < h.size(); ++i) 
+			if (min > h.getValue(h.get(i))) {
+				min = h.getValue(h.get(i));
+			}
+		
+		if (min == 2) {
+			for( int i = 1; i < h.size(); ++i) 
+				if (h.getValue(h.get(i)) == 14) {
+					counter++;
+				}
+		}
+		
+		
+		
+		return false;
+	}
 }
