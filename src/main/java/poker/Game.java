@@ -102,4 +102,18 @@ public class Game {
 	public boolean isStraightFlush(Hand h) {
 		return (isStraight(h) && isFlush(h));
 	}
+	
+	public boolean isRoyalFlush(Hand h) {
+		int min = 0;
+		for (int i = 1; i < h.size(); ++i)
+			if (min > h.getValue(h.get(i))) {
+				min = h.getValue(h.get(i));
+			}
+		
+		if (min == 10) {
+			return (isStraight(h) && isFlush(h));
+		}
+		
+		return (false && isFlush(h));
+	}
 }
