@@ -233,4 +233,22 @@ public class GameTest extends TestCase {
 
 		assertEquals(true, game.isRoyalFlush(game.hand));
 	}
+
+	public void testTwoPair() {
+		Game game = new Game();
+		Deck d = new Deck();
+		d.openFile("twoPair.txt");
+
+		// test one pair
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isTwoPair(game.hand));
+		game.hand.removeAll();
+
+		// two pairs
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isTwoPair(game.hand));
+		game.hand.removeAll();
+	}
 }
