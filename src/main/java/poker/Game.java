@@ -56,7 +56,7 @@ public class Game {
 		int counter = 0;
 		for (int i = 0; i < 5; ++i) {
 			counter = 0;
-			for (int j = 0; j < 5; ++j) {
+			for (int j = 0; j < h.size(); ++j) {
 				if (h.getValue(h.get(i)) == h.getValue(h.get(j)))
 					counter++;
 
