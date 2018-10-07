@@ -192,44 +192,45 @@ public class GameTest extends TestCase {
 		Deck d = new Deck();
 		d.openFile("straightFlush.txt");
 
-		//flush
+		// flush
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(false, game.isStraightFlush(game.hand));
 		game.hand.removeAll();
-		
-		//straight
+
+		// straight
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(false, game.isStraightFlush(game.hand));
 		game.hand.removeAll();
-		
-		//straight flush
+
+		// straight flush
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(true, game.isStraightFlush(game.hand));
 	}
-	
+
 	public void testRoyalFlush() {
 		Game game = new Game();
 		Deck d = new Deck();
 		d.openFile("royalFlush.txt");
-		
-		//test Royal
+
+		// test Royal
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(false, game.isRoyalFlush(game.hand));
 		game.hand.removeAll();
-		
-		//flush
+
+		// flush
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
 		assertEquals(false, game.isRoyalFlush(game.hand));
 		game.hand.removeAll();
-		
-		//Royal flush
+
+		// Royal flush
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
+
 		assertEquals(true, game.isRoyalFlush(game.hand));
 	}
 }
