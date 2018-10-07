@@ -248,7 +248,7 @@ public class GameTest extends TestCase {
 		// two pairs
 		for (int i = 0; i < 5; ++i)
 			game.hand.add(d.draw());
-		assertEquals(false, game.isTwoPair(game.hand));
+		assertEquals(true, game.isTwoPair(game.hand));
 		game.hand.removeAll();
 	}
 }
