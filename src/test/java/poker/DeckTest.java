@@ -39,7 +39,6 @@ public class DeckTest extends TestCase {
 		for( int i = 0; i < 5; ++i)
 			hand.add(jpDeck.draw());
 		
-		assertEquals("",jpDeck.draw());
 		assertEquals(5, hand.size());
 	}
 	
@@ -52,6 +51,10 @@ public class DeckTest extends TestCase {
 		System.out.println("after getting next line");
 		for( int i = 0; i < 5; ++i)
 			hand.add(jpDeck.draw());
+		
+		
+		for( int i = 0; i < 5; ++i) 
+			System.out.println(hand.get(i));
 		
 		assertEquals(5, hand.size());
 		
