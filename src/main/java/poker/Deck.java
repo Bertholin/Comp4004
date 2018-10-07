@@ -26,7 +26,7 @@ public class Deck {
 	}
 
 	public String draw() {
-		String card = "";
+		String card = null ;
 		if (deck.size() != 0) {
 				card = deck.get(0);
 			deck.remove(0);
