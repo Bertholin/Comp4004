@@ -209,4 +209,27 @@ public class GameTest extends TestCase {
 			game.hand.add(d.draw());
 		assertEquals(true, game.isStraightFlush(game.hand));
 	}
+	
+	public void testRoyalFlush() {
+		Game game = new Game();
+		Deck d = new Deck();
+		d.openFile("RoyalFlush.txt");
+		
+		//test Royal
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isRoyalFlush(game.hand));
+		game.hand.removeAll();
+		
+		//flush
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isRoyalFlush(game.hand));
+		game.hand.removeAll();
+		
+		//Royal flush
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(true, game.isRoyalFlush(game.hand));
+	}
 }
