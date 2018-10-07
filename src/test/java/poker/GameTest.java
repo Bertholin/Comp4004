@@ -213,7 +213,7 @@ public class GameTest extends TestCase {
 	public void testRoyalFlush() {
 		Game game = new Game();
 		Deck d = new Deck();
-		d.openFile("RoyalFlush.txt");
+		d.openFile("royalFlush.txt");
 		
 		//test Royal
 		for (int i = 0; i < 5; ++i)
