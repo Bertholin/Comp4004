@@ -62,28 +62,28 @@ public class Game {
 
 				if (counter == amount) {
 					return true;
-					}
+				}
 			}
 		}
 		return false;
 	}
-	
+
 	public boolean isStraight(Hand h) {
 		int min = h.getValue(h.get(0));
 		int counter = 0;
-		
-		for( int i = 1; i < h.size(); ++i) 
+
+		for (int i = 1; i < h.size(); ++i)
 			if (min > h.getValue(h.get(i))) {
 				min = h.getValue(h.get(i));
 			}
-		
+
 		if (min == 2) {
-			for( int i = 1; i < h.size(); ++i) 
+			for (int i = 1; i < h.size(); ++i)
 				if (h.getValue(h.get(i)) == 14) {
 					counter++;
 				}
 		}
-		
+
 		for (int i = 0; i < 5; ++i) {
 			for (int j = 0; j < 5; ++j) {
 				if (min == h.getValue(h.get(j))) {
@@ -92,11 +92,14 @@ public class Game {
 				}
 			}
 		}
-		
+
 		if (counter == 5)
 			return true;
-		
-		
+
 		return false;
+	}
+	
+	public boolean isStraightFlush(Hand h) {
+		return (isStraight(h) && isFlush(h));
 	}
 }
