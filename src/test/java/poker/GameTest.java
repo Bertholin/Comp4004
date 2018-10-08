@@ -251,4 +251,28 @@ public class GameTest extends TestCase {
 		assertEquals(true, game.isTwoPair(game.hand));
 		game.hand.removeAll();
 	}
+	
+	
+	public void testFullHouse() {
+		Game game = new Game();
+		Deck d = new Deck();
+		d.openFile("fullHouse.txt");
+
+		// test just three of a kind
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isFullHouse(game.hand));
+		game.hand.removeAll();
+
+		// test just pair
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(false, game.isFullHouse(game.hand));
+		game.hand.removeAll();
+		
+		// test just full house
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(d.draw());
+		assertEquals(true, game.isFullHouse(game.hand));
+	}
 }
