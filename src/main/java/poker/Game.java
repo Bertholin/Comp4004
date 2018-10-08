@@ -161,4 +161,26 @@ public class Game {
 		}
 		return false;
 	}
+	
+	public boolean isFullHouse(Hand h) {
+
+		if (ofAKind(h, 3)) {
+			int pair = findValueOfAKind(h, 3);
+
+			int counter = 0;
+			for (int i = 0; i < h.size(); ++i) {
+				counter = 0;
+				for (int j = 0; j < h.size(); ++j) {
+					if (pair != h.getValue(h.get(i)))
+						if (h.getValue(h.get(i)) == h.getValue(h.get(j)))
+							counter++;
+
+					if (counter == 2) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 }
