@@ -140,10 +140,6 @@ public class Game {
 
 		if (ofAKind(h, 2)) {
 			int pair = findValueOfAKind(h, 2);
-			System.out.println("The value of the pair is " + pair);
-
-			for (int i = 0; i < h.size(); ++i)
-				System.out.println("The values of the cards are : " + h.get(i));
 
 			int counter = 0;
 			for (int i = 0; i < h.size(); ++i) {
@@ -161,7 +157,7 @@ public class Game {
 		}
 		return false;
 	}
-	
+
 	public boolean isFullHouse(Hand h) {
 
 		if (ofAKind(h, 3)) {
