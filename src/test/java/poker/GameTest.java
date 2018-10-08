@@ -275,4 +275,64 @@ public class GameTest extends TestCase {
 			game.hand.add(d.draw());
 		assertEquals(true, game.isFullHouse(game.hand));
 	}
+	
+	public void testStrategy() {
+		Game game = new Game();
+		
+		game.deck.openFile("strategy.txt");
+
+		// Test for Royal flush
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+		
+		assertEquals("hold", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		// Test for Straight flush
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+		
+		assertEquals("hold", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		// Test for Full house
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+		
+		assertEquals("hold", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		// Test for flush
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+		
+		assertEquals("hold", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		// Test for straight
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+		
+		assertEquals("hold", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		//need to add code for one away
+		
+		
+		System.out.println("\n 3 of the same suit");
+		// Test for 3 suits
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+		
+		assertEquals("3Suits", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		System.out.println("\n 3 of the same ranks");
+		// Test for 3 ranks
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+		
+		assertEquals("3Ranks", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+	}
 }
