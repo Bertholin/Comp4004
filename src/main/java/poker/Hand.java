@@ -56,6 +56,14 @@ public class Hand {
 		}
 	}
 
+	public String printHand() {
+		String s = "";
+
+		for (int i = 0; i < hand.size(); ++i)
+			s += hand.get(i) + ", ";
+
+		return s;
+	}
 }
 
 // for multiple cards maybe use a dictionary
