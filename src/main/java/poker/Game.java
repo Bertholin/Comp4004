@@ -6,6 +6,7 @@ public class Game {
 
 	Hand hand = new Hand();
 	Hand AIHand = new Hand();
+	Deck deck = new Deck();
 
 	public boolean isFlush(Hand hand) {
 		String type = hand.getSuit(hand.get(0));
@@ -178,5 +179,104 @@ public class Game {
 			}
 		}
 		return false;
+	}
+
+	public boolean oneAway(Hand h) {
+
+		return false;
+	}
+
+	public String findSuitOfAKind(Hand h, int amount) {
+		int counter = 0;
+		String suit = "";
+		for (int i = 0; i < 5; ++i) {
+			counter = 0;
+			for (int j = 0; j < h.size(); ++j) {
+				if (h.getSuit(h.get(i)).equals(h.getSuit(h.get(j)))) {
+					counter++;
+					suit = h.getSuit(h.get(i));
+				}
+
+				if (counter == amount) {
+					return suit;
+				}
+			}
+		}
+		return "";
+	}
+
+	public boolean threeSameSuit(Hand h, int amount) {
+		int counter = 0;
+		for (int i = 0; i < 5; ++i) {
+			counter = 0;
+			for (int j = 0; j < h.size(); ++j) {
+				if (h.getSuit(h.get(i)).equals(h.getSuit(h.get(j)))) {
+					counter++;
+				}
+
+				if (counter == amount) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public String checkStrategy(Hand h) {
+		System.out.println("----------  Strategy  ----------");
+		if (isRoyalFlush(h) || isStraightFlush(h) || isFullHouse(h) || isFlush(h) || isStraight(h)) {
+			System.out.println("The current had AIP hand is " + h.printHand());
+			if (isRoyalFlush(h))
+				System.out.println("-----   AIP has a Royal flush  -----\n");
+			else if (isStraightFlush(h))
+				System.out.println("-----   AIP has a Straight flush  -----\n");
+			else if (isFullHouse(h))
+				System.out.println("-----   AIP has a Full house  -----\n");
+			else if (isFlush(h))
+				System.out.println("-----   AIP has a Flush  -----\n");
+			else if (isStraight(h))
+				System.out.println("-----   AIP has a Straight -----\n");
+
+			return "hold";
+		} else if (oneAway(h)) {
+			// still need to code that
+
+			return "oneAway";
+		} else if (threeSameSuit(h, 3)) {
+			System.out.println("The current had AIP hand is " + h.printHand());
+			String suit = findSuitOfAKind(h, 3);
+			System.out.println("The three same suits are " + suit);
+			
+			//check to find the other two cars that don't have the same suit and replaces them
+			for(int i = 0; i < h.size();++ i) {
+				if(!h.getSuit(h.get(i)).equals(suit)){
+					h.remove(i);
+					h.add(i, deck.draw());
+				}
+			}
+			
+			System.out.println("The AIP hand after swapping is " + h.printHand());
+
+			// need to find out what card doesn't have the same suit and swap them
+
+			return "3Suits";
+		} else if (ofAKind(h, 3)) {
+			System.out.println("The current had AIP hand is " + h.printHand());
+			int val = findValueOfAKind(h, 3);
+			System.out.println("The three same ranks are " + val);
+			
+			for(int i = 0; i < h.size();++ i) {
+				if(h.getValue(h.get(i)) != val){
+					h.remove(i);
+					h.add(i, deck.draw());
+				}
+			}
+			
+			// need to find out what card doesn't have the same ranks and swap them
+			System.out.println("The AIP hand after swapping is " + h.printHand());
+			return "3Ranks";
+		}
+
+		return "";
 	}
 }
