@@ -92,10 +92,7 @@ public class Game {
 		int min = h.getValue(h.get(0));
 		int counter = 0;
 
-		for (int i = 1; i < h.size(); ++i)
-			if (min > h.getValue(h.get(i))) {
-				min = h.getValue(h.get(i));
-			}
+		min = getMin(h);
 
 		if (min == 2) {
 			for (int i = 1; i < h.size(); ++i)
