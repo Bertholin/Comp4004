@@ -340,5 +340,29 @@ public class GameTest extends TestCase {
 
 		assertEquals("3Seq", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
+		
+		System.out.println("\n 2 pairs");
+		// Test for 3 ranks
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		assertEquals("2Pair", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		System.out.println("\n 1 pairs");
+		// Test for 3 ranks
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		assertEquals("1Pair", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
+		
+		System.out.println("\n 2 highest cards");
+		// Test for 3 ranks
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		assertEquals("2high", game.checkStrategy(game.AIHand));
+		game.AIHand.removeAll();
 	}
 }
