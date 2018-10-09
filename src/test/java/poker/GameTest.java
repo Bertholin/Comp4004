@@ -333,7 +333,7 @@ public class GameTest extends TestCase {
 		assertEquals("3Ranks", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
 		
-		System.out.println("\n 3 cardds in a sequence");
+		System.out.println("\n 3 cards in a sequence");
 		// Test for 3 ranks
 		for (int i = 0; i < 5; ++i)
 			game.AIHand.add(game.deck.draw());
