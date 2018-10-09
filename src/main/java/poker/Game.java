@@ -327,6 +327,30 @@ public class Game {
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "1Pair";
 		} else {
+			System.out.println("The current had AIP hand is " + h.printHand());
+			String highest = highestCard(h);
+			
+			for (int i = 0; i < h.size(); ++i) {
+				if(h.get(i).equals(highest)){
+					h.remove(i);
+					break;
+				}
+			}
+			
+			String second = highestCard(h);
+			h.add(highest);
+			
+			System.out.println("The two highest cards are " + highest + " and " + second);
+			
+			
+			for(int i = 0; i < h.size();++i) {
+				if(!((h.get(i) != highest && h.get(i) == second) || (h.get(i) == highest && h.get(i) != second))){
+					h.remove(i);
+					h.add(i, deck.draw());
+				}
+			}
+			
+			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "2High";
 		}
 	}
