@@ -222,6 +222,40 @@ public class Game {
 		return false;
 	}
 
+	public int getMin(Hand h) {
+		int min = h.getValue(h.get(0));
+		for (int i = 1; i < h.size(); ++i)
+			if (min > h.getValue(h.get(i))) {
+				min = h.getValue(h.get(i));
+			}
+
+		return min;
+	}
+
+	public boolean threeInSequence(Hand h, int amount) {
+		/*ystem.out.println("\n\n\n ------------------------------------------------------");
+		System.out.println("In 3 card in sequence");
+		int counter = 0;
+		int num = 0;
+
+		for (int i = 0; i < 5; ++i) {
+			System.out.println("The value of i is " + h.getValue(h.get(i)));
+			num = h.getValue(h.get(i));
+			for (int j = 0; j < 5; ++j) {
+				if (num == h.getValue(h.get(j))) {
+					System.out.println("The value of j is " + h.getValue(h.get(j)));
+					counter++;
+				}
+			}
+		}
+
+		System.out.println("The final value of count is : " + counter);
+		if (counter == amount)
+			return true;
+*/
+		return false;
+	}
+
 	public String checkStrategy(Hand h) {
 		System.out.println("----------  Strategy  ----------");
 		if (isRoyalFlush(h) || isStraightFlush(h) || isFullHouse(h) || isFlush(h) || isStraight(h)) {
@@ -246,15 +280,16 @@ public class Game {
 			System.out.println("The current had AIP hand is " + h.printHand());
 			String suit = findSuitOfAKind(h, 3);
 			System.out.println("The three same suits are " + suit);
-			
-			//check to find the other two cars that don't have the same suit and replaces them
-			for(int i = 0; i < h.size();++ i) {
-				if(!h.getSuit(h.get(i)).equals(suit)){
+
+			// check to find the other two cars that don't have the same suit and replaces
+			// them
+			for (int i = 0; i < h.size(); ++i) {
+				if (!h.getSuit(h.get(i)).equals(suit)) {
 					h.remove(i);
 					h.add(i, deck.draw());
 				}
 			}
-			
+
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 
 			// need to find out what card doesn't have the same suit and swap them
@@ -264,19 +299,32 @@ public class Game {
 			System.out.println("The current had AIP hand is " + h.printHand());
 			int val = findValueOfAKind(h, 3);
 			System.out.println("The three same ranks are " + val);
-			
-			for(int i = 0; i < h.size();++ i) {
-				if(h.getValue(h.get(i)) != val){
+
+			for (int i = 0; i < h.size(); ++i) {
+				if (h.getValue(h.get(i)) != val) {
 					h.remove(i);
 					h.add(i, deck.draw());
 				}
 			}
-			
+
 			// need to find out what card doesn't have the same ranks and swap them
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "3Ranks";
+		} else if (threeInSequence(h, 3)) {
+			System.out.println("The current had AIP hand is " + h.printHand());
+			
+			
+			System.out.println("\n ------------- Do Something ----------------");
+			
+			// need to find out what card doesn't have the same ranks and swap them
+			System.out.println("The AIP hand after swapping is " + h.printHand());
+			return "3Seq";
+		} else if (false) {
+			return "2Pair";
+		} else if (false) {
+			return "1Pair";
+		} else {
+			return "Keep highest two cards";
 		}
-
-		return "";
 	}
 }
