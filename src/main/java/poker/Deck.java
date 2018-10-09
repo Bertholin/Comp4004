@@ -26,14 +26,14 @@ public class Deck {
 	}
 
 	public String draw() {
-		String card = null ;
+		String card = null;
 		if (deck.size() != 0) {
-				card = deck.get(0);
+			card = deck.get(0);
 			deck.remove(0);
 		}
 		return card;
 	}
-	
+
 	public boolean openJustFile(String s) {
 		File file = new File("src/main/resources/" + s);
 		try {
@@ -44,14 +44,12 @@ public class Deck {
 			return false;
 		}
 	}
-	
+
 	public boolean getNextLine() {
-		System.out.println("The next line is there -> " + sc.hasNextLine());
-		if(sc.hasNextLine()) {
+		if (sc.hasNextLine()) {
 			String[] cards = sc.nextLine().split(" ");
 			for (String c : cards) {
 				deck.add(c);
-				System.out.println(c);
 			}
 			return true;
 		}
