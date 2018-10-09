@@ -324,7 +324,7 @@ public class Game {
 		} else if (false) {
 			return "1Pair";
 		} else {
-			return "Keep highest two cards";
+			return "2High";
 		}
 	}
 }
