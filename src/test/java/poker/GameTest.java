@@ -373,7 +373,7 @@ public class GameTest extends TestCase {
 		for (int i = 0; i < 5; ++i)
 			game.AIHand.add(game.deck.draw());
 
-		assertEquals("2high", game.checkStrategy(game.AIHand));
+		assertEquals("2High", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
 	}
 }
