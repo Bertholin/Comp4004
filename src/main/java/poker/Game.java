@@ -233,26 +233,19 @@ public class Game {
 	}
 
 	public boolean threeInSequence(Hand h, int amount) {
-		/*ystem.out.println("\n\n\n ------------------------------------------------------");
-		System.out.println("In 3 card in sequence");
-		int counter = 0;
-		int num = 0;
-
-		for (int i = 0; i < 5; ++i) {
-			System.out.println("The value of i is " + h.getValue(h.get(i)));
-			num = h.getValue(h.get(i));
-			for (int j = 0; j < 5; ++j) {
-				if (num == h.getValue(h.get(j))) {
-					System.out.println("The value of j is " + h.getValue(h.get(j)));
-					counter++;
-				}
-			}
-		}
-
-		System.out.println("The final value of count is : " + counter);
-		if (counter == amount)
-			return true;
-*/
+		/*
+		 * System.out.println("\n\n\n ------------------------------------------------------");
+		 * System.out.println("In 3 card in sequence"); int counter = 0; int num = 0;
+		 * 
+		 * for (int i = 0; i < 5; ++i) { System.out.println("The value of i is " +
+		 * h.getValue(h.get(i))); num = h.getValue(h.get(i)); for (int j = 0; j < 5;
+		 * ++j) { if (num == h.getValue(h.get(j))) {
+		 * System.out.println("The value of j is " + h.getValue(h.get(j))); counter++; }
+		 * } }
+		 * 
+		 * System.out.println("The final value of count is : " + counter); if (counter
+		 * == amount) return true;
+		 */
 		return false;
 	}
 
@@ -312,16 +305,26 @@ public class Game {
 			return "3Ranks";
 		} else if (threeInSequence(h, 3)) {
 			System.out.println("The current had AIP hand is " + h.printHand());
-			
-			
+
 			System.out.println("\n ------------- Do Something ----------------");
-			
+
 			// need to find out what card doesn't have the same ranks and swap them
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "3Seq";
 		} else if (false) {
 			return "2Pair";
-		} else if (false) {
+		} else if (ofAKind(h, 2)) {
+			System.out.println("The current had AIP hand is " + h.printHand());
+			int val = findValueOfAKind(h, 2);
+			System.out.println("The value of the pair is " + val);
+			
+			for (int i = 0; i < h.size(); ++i) {
+				if (h.getValue(h.get(i)) != val) {
+					h.remove(i);
+					h.add(i, deck.draw());
+				}
+			}
+			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "1Pair";
 		} else {
 			return "2High";
