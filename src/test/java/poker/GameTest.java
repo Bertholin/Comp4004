@@ -71,8 +71,8 @@ public class GameTest extends TestCase {
 		game.AIHand.add(d.draw());
 		assertEquals("SJ", game.highestCard(game.AIHand));
 
-		
-		
+
+
 		game.hand.removeAll();
 		game.AIHand.removeAll();
 
@@ -353,7 +353,7 @@ public class GameTest extends TestCase {
 		//assertEquals("3Seq", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
 		game.deck.deck.clear();
-		
+
 		game.deck.getNextLine();
 		System.out.println("\n 2 pairs");
 		// Test for 2 pair
@@ -363,7 +363,7 @@ public class GameTest extends TestCase {
 		assertEquals("2Pair", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
 		game.deck.deck.clear();
-		
+
 		game.deck.getNextLine();
 		System.out.println("\n 1 pairs");
 		// Test for 3 ranks
@@ -382,5 +382,103 @@ public class GameTest extends TestCase {
 
 		assertEquals("2High", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
+	}
+
+	public void testWinner() {
+		System.out.println("\n ------------- Winning games----------------");
+		Game game = new Game();
+
+		// game.deck.openFile("strategy.txt");
+		game.deck.openJustFile("strategy.txt");
+		game.deck.getNextLine();
+
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		// Test for Straight flush
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(game.deck.draw());
+
+		System.out.println("\n\nThe player hand is " + game.hand.printHand());
+		System.out.println("The AI hand is " + game.AIHand.printHand());
+		assertEquals("AI", game.checkWinner(game.hand, game.AIHand));
+		System.out.println("The winner of the game is " + game.checkWinner(game.hand, game.AIHand));
+		game.AIHand.removeAll();
+		game.hand.removeAll();
+
+		// Test for Full house
+		for (int i = 0; i < 5; ++i)
+			game.hand.add(game.deck.draw());
+
+
+		// Test for flush
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		System.out.println("\n\nThe player hand is " + game.hand.printHand());
+		System.out.println("The AI hand is " + game.AIHand.printHand());
+		assertEquals("Player", game.checkWinner(game.hand, game.AIHand));
+		System.out.println("The winner of the game is " + game.checkWinner(game.hand, game.AIHand));
+		game.AIHand.removeAll();
+		game.hand.removeAll();
+/*
+		// Test for straight
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+
+		game.deck.getNextLine();
+		// Test for 3 suits
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		assertEquals("AI", game.checkWinner(game.hand, game.AIHand));
+		game.AIHand.removeAll();
+		game.hand.removeAll();
+		
+		game.deck.getNextLine();
+		System.out.println("\n 3 of the same ranks");
+		// Test for 3 ranks
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+
+		//System.out.println("The size of the deck is " + game.deck.deck.size());
+		game.deck.getNextLine();
+		System.out.println("\n 3 cards in a sequence");
+		// Test for 3 in seq
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		assertEquals("", game.checkWinner(game.hand, game.AIHand));
+		game.AIHand.removeAll();
+		game.hand.removeAll();
+		game.deck.deck.clear();
+
+		game.deck.getNextLine();
+		System.out.println("\n 2 pairs");
+		// Test for 2 pair
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		game.AIHand.removeAll();
+		game.deck.deck.clear();
+
+		game.deck.getNextLine();
+		System.out.println("\n 1 pairs");
+		// Test for 3 ranks
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		game.AIHand.removeAll();
+		game.deck.deck.clear();
+
+		game.deck.getNextLine();
+		System.out.println("\n 2 highest cards");
+		// Test for 3 ranks
+		for (int i = 0; i < 5; ++i)
+			game.AIHand.add(game.deck.draw());
+
+		game.AIHand.removeAll();*/
 	}
 }
