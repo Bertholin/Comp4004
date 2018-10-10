@@ -230,53 +230,33 @@ public class Game {
 	}
 
 	public boolean threeInSequence(Hand h) {
-		/*System.out.println("Inside of the three in sequence method");
-		ArrayList<String> h2 = new ArrayList<String>();
-		String highest = "";
-		while (!h.hand.isEmpty()) {
-			highest = highestCard(h);
-
-			for (int i = 0; i < h.size(); ++i) {
-				if (h.get(i).equals(highest)) {
-					h.remove(i);
-					h2.add(0, highest);
-					break;
-				}
-			}
-		}
-
-		h.hand = h2;
-		System.out.println("Sorted Hand " + h.printHand());
-		int counter = 0;
-		String min = "", max = "";
-		
-		if (h.getValue(h.get(0)) == 2) {
-			for (int j = 1; j < h.size(); ++j)
-				if (h.getValue(h.get(j)) == 14) {
-					min = h.get(j);
-					counter++;
-				}
-		}
-		
-		for (int i = 0; i < h.size() - 1; ++i) {
-			System.out.println("I is " + i + " and i+1 is " + (i+1) + " The difference is " + (h.getValue(h.get(i)) - h.getValue(h.get(i+1))));
-			if ((h.getValue(h.get(i)) - h.getValue(h.get(i - 1))) == -1) {
-				System.out.println("The difference was one");
-				if(counter == 0)
-					min = h.get(i);
-				counter++;
-				
-				if(counter == 2)
-					max = h.get(i + 1);
-			}
-			
-			
-
-			if (counter == 2) {
-				System.out.print("The min is " + min + " and the max is " + max);
-				return true;
-			}
-		}*/
+		/*
+		 * System.out.println("Inside of the three in sequence method");
+		 * ArrayList<String> h2 = new ArrayList<String>(); String highest = ""; while
+		 * (!h.hand.isEmpty()) { highest = highestCard(h);
+		 * 
+		 * for (int i = 0; i < h.size(); ++i) { if (h.get(i).equals(highest)) {
+		 * h.remove(i); h2.add(0, highest); break; } } }
+		 * 
+		 * h.hand = h2; System.out.println("Sorted Hand " + h.printHand()); int counter
+		 * = 0; String min = "", max = "";
+		 * 
+		 * if (h.getValue(h.get(0)) == 2) { for (int j = 1; j < h.size(); ++j) if
+		 * (h.getValue(h.get(j)) == 14) { min = h.get(j); counter++; } }
+		 * 
+		 * for (int i = 0; i < h.size() - 1; ++i) { System.out.println("I is " + i +
+		 * " and i+1 is " + (i+1) + " The difference is " + (h.getValue(h.get(i)) -
+		 * h.getValue(h.get(i+1)))); if ((h.getValue(h.get(i)) - h.getValue(h.get(i -
+		 * 1))) == -1) { System.out.println("The difference was one"); if(counter == 0)
+		 * min = h.get(i); counter++;
+		 * 
+		 * if(counter == 2) max = h.get(i + 1); }
+		 * 
+		 * 
+		 * 
+		 * if (counter == 2) { System.out.print("The min is " + min + " and the max is "
+		 * + max); return true; } }
+		 */
 		return false;
 	}
 
@@ -311,10 +291,10 @@ public class Game {
 			String s = "";
 			for (int i = 0; i < h.size(); ++i) {
 				if (!h.getSuit(h.get(i)).equals(suit)) {
-					System.out.println("The card being removed is "+ h.get(i));
+					System.out.println("The card being removed is " + h.get(i));
 					h.remove(i);
 					s = deck.draw();
-					System.out.println("The card being added is "+ h.get(i));
+					System.out.println("The card being added is " + h.get(i));
 					h.add(i, s);
 				}
 			}
@@ -332,10 +312,10 @@ public class Game {
 			String s = "";
 			for (int i = 0; i < h.size(); ++i) {
 				if (h.getValue(h.get(i)) != val) {
-					System.out.println("The card being removed is "+ h.get(i));
+					System.out.println("The card being removed is " + h.get(i));
 					h.remove(i);
 					s = deck.draw();
-					System.out.println("The card being added is "+ s);
+					System.out.println("The card being added is " + s);
 					h.add(i, s);
 				}
 			}
@@ -374,14 +354,14 @@ public class Game {
 
 			int otherPair = findValueOfAKind(h, 2);
 			System.out.println("The value of the second pair is " + otherPair);
-			
+
 			String s = "";
 			for (int i = 0; i < h.size(); ++i) {
 				if (h.getValue(h.get(i)) != firstPair && h.getValue(h.get(i)) != otherPair) {
-					System.out.println("The card being removed is "+ h.get(i));
+					System.out.println("The card being removed is " + h.get(i));
 					h.remove(i);
 					s = deck.draw();
-					System.out.println("The card being added is "+ s);
+					System.out.println("The card being added is " + s);
 					h.add(s);
 				}
 			}
@@ -395,10 +375,10 @@ public class Game {
 
 			for (int i = 0; i < h.size(); ++i) {
 				if (h.getValue(h.get(i)) != val) {
-					System.out.println("The card being removed is "+ h.get(i));
+					System.out.println("The card being removed is " + h.get(i));
 					h.remove(i);
 					String s = deck.draw();
-					System.out.println("The card being added is "+ s);
+					System.out.println("The card being added is " + s);
 					h.add(i, s);
 				}
 			}
@@ -422,10 +402,10 @@ public class Game {
 			String s = "";
 			for (int i = 0; i < h.size(); ++i) {
 				if (!((h.get(i) != highest && h.get(i) == second) || (h.get(i) == highest && h.get(i) != second))) {
-					System.out.println("The card being removed is "+ h.get(i));
+					System.out.println("The card being removed is " + h.get(i));
 					h.remove(i);
 					s = deck.draw();
-					System.out.println("The card being added is "+ s);
+					System.out.println("The card being added is " + s);
 					h.add(i, s);
 				}
 			}
@@ -433,5 +413,28 @@ public class Game {
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "2High";
 		}
+	}
+
+	public int score(Hand h) {
+		if (isRoyalFlush(h))
+			return 100;
+		else if (isStraightFlush(h))
+			return 90;
+		else if (ofAKind(h, 4))
+			return 80;
+		else if (isFullHouse(h))
+			return 70;
+		else if (isFlush(h))
+			return 60;
+		else if (isStraight(h))
+			return 50;
+		else if (ofAKind(h, 3))
+			return 40;
+		else if (isTwoPair(h))
+			return 30;
+		else if (ofAKind(h, 2))
+			return 20;
+		else
+			return 10;
 	}
 }
