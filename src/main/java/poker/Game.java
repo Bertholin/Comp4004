@@ -229,20 +229,54 @@ public class Game {
 		return min;
 	}
 
-	public boolean threeInSequence(Hand h, int amount) {
-		/*
-		 * System.out.println("\n\n\n ------------------------------------------------------");
-		 * System.out.println("In 3 card in sequence"); int counter = 0; int num = 0;
-		 * 
-		 * for (int i = 0; i < 5; ++i) { System.out.println("The value of i is " +
-		 * h.getValue(h.get(i))); num = h.getValue(h.get(i)); for (int j = 0; j < 5;
-		 * ++j) { if (num == h.getValue(h.get(j))) {
-		 * System.out.println("The value of j is " + h.getValue(h.get(j))); counter++; }
-		 * } }
-		 * 
-		 * System.out.println("The final value of count is : " + counter); if (counter
-		 * == amount) return true;
-		 */
+	public boolean threeInSequence(Hand h) {
+		/*System.out.println("Inside of the three in sequence method");
+		ArrayList<String> h2 = new ArrayList<String>();
+		String highest = "";
+		while (!h.hand.isEmpty()) {
+			highest = highestCard(h);
+
+			for (int i = 0; i < h.size(); ++i) {
+				if (h.get(i).equals(highest)) {
+					h.remove(i);
+					h2.add(0, highest);
+					break;
+				}
+			}
+		}
+
+		h.hand = h2;
+		System.out.println("Sorted Hand " + h.printHand());
+		int counter = 0;
+		String min = "", max = "";
+		
+		if (h.getValue(h.get(0)) == 2) {
+			for (int j = 1; j < h.size(); ++j)
+				if (h.getValue(h.get(j)) == 14) {
+					min = h.get(j);
+					counter++;
+				}
+		}
+		
+		for (int i = 0; i < h.size() - 1; ++i) {
+			System.out.println("I is " + i + " and i+1 is " + (i+1) + " The difference is " + (h.getValue(h.get(i)) - h.getValue(h.get(i+1))));
+			if ((h.getValue(h.get(i)) - h.getValue(h.get(i - 1))) == -1) {
+				System.out.println("The difference was one");
+				if(counter == 0)
+					min = h.get(i);
+				counter++;
+				
+				if(counter == 2)
+					max = h.get(i + 1);
+			}
+			
+			
+
+			if (counter == 2) {
+				System.out.print("The min is " + min + " and the max is " + max);
+				return true;
+			}
+		}*/
 		return false;
 	}
 
@@ -251,16 +285,17 @@ public class Game {
 		if (isRoyalFlush(h) || isStraightFlush(h) || isFullHouse(h) || isFlush(h) || isStraight(h)) {
 			System.out.println("The current had AIP hand is " + h.printHand());
 			if (isRoyalFlush(h))
-				System.out.println("-----   AIP has a Royal flush  -----\n");
+				System.out.println("-----   AIP has a Royal flush  -----");
 			else if (isStraightFlush(h))
-				System.out.println("-----   AIP has a Straight flush  -----\n");
+				System.out.println("-----   AIP has a Straight flush  -----");
 			else if (isFullHouse(h))
-				System.out.println("-----   AIP has a Full house  -----\n");
+				System.out.println("-----   AIP has a Full house  -----");
 			else if (isFlush(h))
-				System.out.println("-----   AIP has a Flush  -----\n");
+				System.out.println("-----   AIP has a Flush  -----");
 			else if (isStraight(h))
-				System.out.println("-----   AIP has a Straight -----\n");
+				System.out.println("-----   AIP has a Straight -----");
 
+			System.out.println("----- Hold -----\n");
 			return "hold";
 		} else if (oneAway(h)) {
 			// still need to code that
@@ -273,10 +308,14 @@ public class Game {
 
 			// check to find the other two cars that don't have the same suit and replaces
 			// them
+			String s = "";
 			for (int i = 0; i < h.size(); ++i) {
 				if (!h.getSuit(h.get(i)).equals(suit)) {
+					System.out.println("The card being removed is "+ h.get(i));
 					h.remove(i);
-					h.add(i, deck.draw());
+					s = deck.draw();
+					System.out.println("The card being added is "+ h.get(i));
+					h.add(i, s);
 				}
 			}
 
@@ -290,17 +329,21 @@ public class Game {
 			int val = findValueOfAKind(h, 3);
 			System.out.println("The three same ranks are " + val);
 
+			String s = "";
 			for (int i = 0; i < h.size(); ++i) {
 				if (h.getValue(h.get(i)) != val) {
+					System.out.println("The card being removed is "+ h.get(i));
 					h.remove(i);
-					h.add(i, deck.draw());
+					s = deck.draw();
+					System.out.println("The card being added is "+ s);
+					h.add(i, s);
 				}
 			}
 
 			// need to find out what card doesn't have the same ranks and swap them
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "3Ranks";
-		} else if (threeInSequence(h, 3)) {
+		} else if (threeInSequence(h)) {
 			System.out.println("The current had AIP hand is " + h.printHand());
 
 			System.out.println("\n ------------- Do Something ----------------");
@@ -308,17 +351,55 @@ public class Game {
 			// need to find out what card doesn't have the same ranks and swap them
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "3Seq";
-		} else if (false) {
+		} else if (isTwoPair(h)) {
+			System.out.println("The current had AIP hand is " + h.printHand());
+			int firstPair = findValueOfAKind(h, 2);
+			System.out.println("The value of the first pair is " + firstPair);
+			int count = 0;
+			int num = 0;
+
+			while (count < 2) {
+				if (h.getValue(h.get(num)) == firstPair) {
+					String s = h.get(num);
+					h.remove(num);
+					h.add(s);
+					num = 0;
+					count++;
+
+					if (count == 2)
+						break;
+				}
+				++num;
+			}
+
+			int otherPair = findValueOfAKind(h, 2);
+			System.out.println("The value of the second pair is " + otherPair);
+			
+			String s = "";
+			for (int i = 0; i < h.size(); ++i) {
+				if (h.getValue(h.get(i)) != firstPair && h.getValue(h.get(i)) != otherPair) {
+					System.out.println("The card being removed is "+ h.get(i));
+					h.remove(i);
+					s = deck.draw();
+					System.out.println("The card being added is "+ s);
+					h.add(s);
+				}
+			}
+
+			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "2Pair";
 		} else if (ofAKind(h, 2)) {
 			System.out.println("The current had AIP hand is " + h.printHand());
 			int val = findValueOfAKind(h, 2);
 			System.out.println("The value of the pair is " + val);
-			
+
 			for (int i = 0; i < h.size(); ++i) {
 				if (h.getValue(h.get(i)) != val) {
+					System.out.println("The card being removed is "+ h.get(i));
 					h.remove(i);
-					h.add(i, deck.draw());
+					String s = deck.draw();
+					System.out.println("The card being added is "+ s);
+					h.add(i, s);
 				}
 			}
 			System.out.println("The AIP hand after swapping is " + h.printHand());
@@ -326,27 +407,29 @@ public class Game {
 		} else {
 			System.out.println("The current had AIP hand is " + h.printHand());
 			String highest = highestCard(h);
-			
+
 			for (int i = 0; i < h.size(); ++i) {
-				if(h.get(i).equals(highest)){
+				if (h.get(i).equals(highest)) {
 					h.remove(i);
 					break;
 				}
 			}
-			
+
 			String second = highestCard(h);
 			h.add(highest);
-			
+
 			System.out.println("The two highest cards are " + highest + " and " + second);
-			
-			
-			for(int i = 0; i < h.size();++i) {
-				if(!((h.get(i) != highest && h.get(i) == second) || (h.get(i) == highest && h.get(i) != second))){
+			String s = "";
+			for (int i = 0; i < h.size(); ++i) {
+				if (!((h.get(i) != highest && h.get(i) == second) || (h.get(i) == highest && h.get(i) != second))) {
+					System.out.println("The card being removed is "+ h.get(i));
 					h.remove(i);
-					h.add(i, deck.draw());
+					s = deck.draw();
+					System.out.println("The card being added is "+ s);
+					h.add(i, s);
 				}
 			}
-			
+
 			System.out.println("The AIP hand after swapping is " + h.printHand());
 			return "2High";
 		}
