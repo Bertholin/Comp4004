@@ -437,4 +437,17 @@ public class Game {
 		else
 			return 10;
 	}
+	
+	public String checkWinner(Hand player, Hand AI) {
+		String winner = "";
+		
+		if(score(player) > score(AI))
+			winner = "Player";
+		else if (score(player) < score(AI))
+			winner = "AI";
+		else
+			winner = "Tie";
+		
+		return winner;
+	}
 }
