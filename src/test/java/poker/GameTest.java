@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 public class GameTest extends TestCase {
 	public void testFlush() {
+		System.out.println("\n\n------------------   Test Flush  -------------------\n");
 		Game game = new Game();
 		Deck d = new Deck();
 		d.openFile("flushtest.txt");
@@ -14,6 +15,7 @@ public class GameTest extends TestCase {
 		game.hand.add(d.draw());
 		game.hand.add(d.draw());
 		game.hand.add(d.draw());
+		System.out.println("The player hand is " + game.hand.printHand());
 		assertEquals(false, game.isFlush(game.hand));
 
 		// testing for flush with last invalid
@@ -22,6 +24,7 @@ public class GameTest extends TestCase {
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
+		System.out.println("The AI hand is " + game.AIHand.printHand());
 		assertEquals(false, game.isFlush(game.AIHand));
 
 		game.hand.removeAll();
@@ -33,6 +36,7 @@ public class GameTest extends TestCase {
 		game.hand.add(d.draw());
 		game.hand.add(d.draw());
 		game.hand.add(d.draw());
+		System.out.println("The player hand is " + game.hand.printHand());
 		assertEquals(false, game.isFlush(game.hand));
 
 		// testing for flush with valid cards
@@ -41,6 +45,7 @@ public class GameTest extends TestCase {
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
 		game.AIHand.add(d.draw());
+		System.out.println("The AI hand is " + game.AIHand.printHand());
 		assertEquals(true, game.isFlush(game.AIHand));
 
 	}
@@ -66,6 +71,8 @@ public class GameTest extends TestCase {
 		game.AIHand.add(d.draw());
 		assertEquals("SJ", game.highestCard(game.AIHand));
 
+		
+		
 		game.hand.removeAll();
 		game.AIHand.removeAll();
 
@@ -343,7 +350,7 @@ public class GameTest extends TestCase {
 		for (int i = 0; i < 5; ++i)
 			game.AIHand.add(game.deck.draw());
 
-		// assertEquals("3Seq", game.checkStrategy(game.AIHand));
+		//assertEquals("3Seq", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
 		game.deck.deck.clear();
 		
@@ -353,7 +360,7 @@ public class GameTest extends TestCase {
 		for (int i = 0; i < 5; ++i)
 			game.AIHand.add(game.deck.draw());
 
-		// assertEquals("2Pair", game.checkStrategy(game.AIHand));
+		assertEquals("2Pair", game.checkStrategy(game.AIHand));
 		game.AIHand.removeAll();
 		game.deck.deck.clear();
 		
