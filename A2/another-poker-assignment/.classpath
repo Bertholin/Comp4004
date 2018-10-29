@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/cobertura-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/cucumber-core-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/cucumber-java-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/cucumber-junit-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/cucumber-jvm-deps-1.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/cucumber-reporting-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/gherkin-2.12.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bert/Documents/GitHub/Comp4004/Cucumber-Jars/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
