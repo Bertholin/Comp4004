@@ -5,8 +5,8 @@ import java.io.*;
 
 public class Game {
 	
-	Player toBeat;
-	AIPlayer AIP;
+	public Player toBeat;
+	public AIPlayer AIP;
 	Deck deck;
 	int num = 0;
 	int numExchanged = 0;

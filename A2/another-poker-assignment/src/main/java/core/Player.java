@@ -5,7 +5,7 @@ import java.util.*;
 public class Player {
 
 	Hand highestHand = Hand.HIGH_CARD;
-	ArrayList<Card> cards = new ArrayList<Card>();
+	public ArrayList<Card> cards = new ArrayList<Card>();
 	
 	int numPairs = 0;
 	boolean three_of_kind = false;
