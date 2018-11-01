@@ -26,7 +26,7 @@ public class AIPlayer extends Player{
 	ArrayList<HashSet<Card>> sequences = new ArrayList<>();
 	
 	ArrayList<Card> discard = new ArrayList<Card>();
-	ArrayList<String> toDiscard = new ArrayList<String>();
+	public ArrayList<String> toDiscard = new ArrayList<String>();
 	
 	ArrayList<Card> recieved = new ArrayList<Card>();
 	
