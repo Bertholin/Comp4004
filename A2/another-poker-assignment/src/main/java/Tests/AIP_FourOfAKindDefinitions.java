@@ -11,42 +11,42 @@ public class AIP_FourOfAKindDefinitions {
 
 	@Given("^The AIP has a four of a Kind vs fullHouse \"([^\"]*)\"$")
 	public void the_AIP_has_a_four_of_a_Kind_vs_fullHouse(String data) {
-		System.out.println("------------------ AIP: Four of a Kind VS HTB: High Card ------------------ ");
+		System.out.println("------------------ AIP: Four of a Kind VS HTB: Full House ------------------ ");
 		game = new Game();
 		game.evaluate(data);
 	}
 
 	@Given("^The AIP has a four of a Kind vs flush \"([^\"]*)\"$")
 	public void the_AIP_has_a_four_of_a_Kind_vs_flush(String data) {
-		System.out.println("------------------ AIP: Four of a Kind VS HTB: High Card ------------------ ");
+		System.out.println("------------------ AIP: Four of a Kind VS HTB: Flush ------------------ ");
 		game = new Game();
 		game.evaluate(data);
 	}
 
 	@Given("^The AIP has a four of a Kind vs straight \"([^\"]*)\"$")
 	public void the_AIP_has_a_four_of_a_Kind_vs_straight(String data) {
-		System.out.println("------------------ AIP: Four of a Kind VS HTB: High Card ------------------ ");
+		System.out.println("------------------ AIP: Four of a Kind VS HTB: Straight ------------------ ");
 		game = new Game();
 		game.evaluate(data);
 	}
 
 	@Given("^The AIP has a four of a Kind vs threeOfAKind \"([^\"]*)\"$")
 	public void the_AIP_has_a_four_of_a_Kind_vs_threeOfAKind(String data) {
-		System.out.println("------------------ AIP: Four of a Kind VS HTB: High Card ------------------ ");
+		System.out.println("------------------ AIP: Four of a Kind VS HTB: Three of a kind ------------------ ");
 		game = new Game();
 		game.evaluate(data);
 	}
 
 	@Given("^The AIP has a four of a Kind vs twoPair \"([^\"]*)\"$")
 	public void the_AIP_has_a_four_of_a_Kind_vs_twoPair(String data) {
-		System.out.println("------------------ AIP: Four of a Kind VS HTB: High Card ------------------ ");
+		System.out.println("------------------ AIP: Four of a Kind VS HTB: Two Pair ------------------ ");
 		game = new Game();
 		game.evaluate(data);
 	}
 
 	@Given("^The AIP has a four of a Kind vs pair \"([^\"]*)\"$")
 	public void the_AIP_has_a_four_of_a_Kind_vs_pair(String data) {
-		System.out.println("------------------ AIP: Four of a Kind VS HTB: High Card ------------------ ");
+		System.out.println("------------------ AIP: Four of a Kind VS HTB: Pair ------------------ ");
 		game = new Game();
 		game.evaluate(data);
 	}
