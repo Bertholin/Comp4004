@@ -1,19 +1,12 @@
 package Tests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 
-import core.Card;
 import core.Game;
-import core.Player;
-import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
-public class HTB_VS_AIP {
-
+public class HTB_RoyalFlush_AIP {
 	Game game;
 
 	@Given("^The HTB has a Royal Flush vs straightFlush \"([^\"]*)\"$")
@@ -79,7 +72,7 @@ public class HTB_VS_AIP {
 		game.evaluate(data);
 	}
 
-	@Then("^the HTB beats the AIP$")
+	@Then("^the HTB \\(Royal Flush\\) beats the AIP$")
 	public void the_HTB_beats_the_AIP() {
 		game.findWinner();
 		Assert.assertEquals(game.AIPWon(), false);
