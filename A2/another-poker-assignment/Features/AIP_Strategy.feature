@@ -63,3 +63,35 @@ Feature: AIP Strategy for exchanges cards
     Scenario: The AIP No pair and Holds the two highest and exchanges the others.
     Given The AIP has No pair and Holds the two highest "S7 C7 D7 H7 C5 H9 C10 S6 C2 HQ"
     Then we dont care about the outcome
+    
+    Scenario: The HTB and AIP both have Royal Flushes and highest one wins.
+    Given The HTB and AIP both have Royal Flushes "SJ S10 SK SQ SA DJ D10 DK DQ DA"
+    Then the highest suit wins
+    
+    Scenario: The HTB and AIP both have Straight Flushes with distinct high card.
+    Given The HTB and AIP both have Straight Flushes with distinct high card "SQ S8 SJ S10 S9 H7 H8 HJ H10 H9"
+    Then the highest suit wins
+    
+    Scenario: The HTB and AIP both have Straight Flushes with same high card.
+    Given The HTB and AIP both have Straight Flushes with same high card "S7 S8 SJ S10 S9 H7 H8 HJ H10 H9"
+    Then the highest suit wins
+    
+    Scenario: The HTB and AIP both have four of a kind and highest one wins.
+    Given The HTB and AIP both have four of a kind "S7 C7 D7 H7 D4 S2 C2 D2 H2 C5"
+    Then the highest suit wins
+    
+    Scenario: The HTB and AIP both have full house and highest one wins.
+    Given The HTB and AIP both have full house "S7 C7 D7 H5 C5 S2 C2 D2 H4 C4"
+    Then the highest suit wins
+    
+    Scenario: The HTB and AIP both have three of a kind and highest one wins.
+    Given The HTB and AIP both have three of a kind "S7 C7 D7 H9 C5 S2 C2 D2 H6 C4"
+    Then the highest suit wins
+    
+    Scenario: The HTB and AIP both have Straight with same  card.
+    Given The HTB and AIP both have Straight with same high card "C7 S8 DJ S10 H9 H7 C8 HJ H10 S9"
+    Then the highest suit wins
+    
+    Scenario: The HTB and AIP both have Straight with distinct high card.
+    Given The HTB and AIP both have Straight with distinct high card "CQ S8 DJ S10 H9 H7 C8 HJ H10 S9"
+    Then the highest suit wins

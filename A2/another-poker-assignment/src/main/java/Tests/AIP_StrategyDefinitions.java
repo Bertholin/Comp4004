@@ -190,7 +190,62 @@ public class AIP_StrategyDefinitions {
 		c.add(new Card("S2"));
 		c.add(new Card("S8"));
 	}
+	
+	@Given("^The HTB and AIP both have Royal Flushes \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_Royal_Flushes(String data) {
+		System.out.println("------------------ HTB and AIP both have Royal Flushes and highest suit wins ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
 
+	@Given("^The HTB and AIP both have Straight Flushes with distinct high card \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_Straight_Flushes_with_distinct_high_card(String data) {
+		System.out.println("------------------ HTB and AIP both have Straight Flushes with distinct high card ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
+	
+	@Given("^The HTB and AIP both have Straight Flushes with same high card \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_Straight_Flushes_with_same_high_card(String data) {
+		System.out.println("------------------ HTB and AIP both have Straight Flushes with same high card  ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
+
+	@Given("^The HTB and AIP both have four of a kind \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_four_of_a_kind(String data) {
+		System.out.println("------------------ HTB and AIP both have four of a kind and quad wins ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
+
+	@Given("^The HTB and AIP both have full house \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_full_house(String data) {
+		System.out.println("------------------ HTB and AIP both have full house and highest tripple wins ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
+
+	@Given("^The HTB and AIP both have three of a kind \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_three_of_a_kind(String data) {
+		System.out.println("------------------ HTB and AIP both have three of a kind and highest tripple wins ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
+	
+	@Given("^The HTB and AIP both have Straight with same high card \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_Straight_with_same_high_card(String data) {
+		System.out.println("------------------ HTB and AIP both have Straight with same number and highest suit wins ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
+	
+	@Given("^The HTB and AIP both have Straight with distinct high card \"([^\"]*)\"$")
+	public void the_HTB_and_AIP_both_have_Straight_with_distinct_high_card(String data) {
+		System.out.println("------------------ HTB and AIP both have Straight with distinct high card wins ------------------ ");
+		game = new Game();
+		game.playWithoutExchange(data);
+	}
 
 	@Then("^the AIP changes a card and win$")
 	public void the_AIP_changes_a_card() {
@@ -227,5 +282,11 @@ public class AIP_StrategyDefinitions {
 		System.out.println("The Card that is being discarded is " + game.AIP.getDiscarded());
 		System.out.println("The new hand is " + game.AIP.cards);
 		System.out.println("Dont care who wins\n");
+	}
+	
+	@Then("^the highest suit wins$")
+	public void the_highest_suit_wins() {
+		Assert.assertEquals(game.AIPWon(), false);
+		System.out.println("HTB Won\n");
 	}
 }
