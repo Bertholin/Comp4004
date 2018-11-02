@@ -70,6 +70,8 @@ public class Game {
 		Hand Opponent = toBeat.getHighestHand();
 		Hand AIPHand = AIP.getHighestHand();
 		AIPWin = false;
+		//System.out.println("The AIP weight is " + AIPHand.getWeight());
+		//System.out.println("The HTB weight is " + Opponent.getWeight());
 		if (AIPHand.getWeight() > Opponent.getWeight()) {
 			AIPWin = true;
 		}
@@ -105,10 +107,23 @@ public class Game {
 		AIP.addCards(drawnCards);
 	}
 	
+	public void exchange(ArrayList<Card> cards) {
+		numExchanged = AIP.exchange();
+		AIP.addCards(cards);
+	}
+	
 	public void play(String line) {
 		deck = new Deck();
 		evaluate(line);
 		exchange();
+		findWinner();
+		printGame();
+	}
+	
+	public void play(String line, ArrayList<Card> cards) {
+		deck = new Deck();
+		evaluate(line);
+		exchange(cards);
 		findWinner();
 		printGame();
 	}

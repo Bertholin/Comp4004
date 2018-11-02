@@ -40,7 +40,7 @@ public class Player {
 		findHighestHand();
 	}
 	
-	void orderCards() {
+	public void orderCards() {
 		int n = cards.size();
 		for (int i=0; i<n-1; i++) {
 			for (int j=0; j < n-i-1; j++) {
