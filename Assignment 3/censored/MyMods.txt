@@ -1,0 +1,9 @@
+Added things:
+-------------
+
+
+
+Error Fixes:
+------------
+in strategy2Test, Removed the last bracket at end of file
+in RankingTest, fixed a line that was missing a / for a comment next to 13 requirement

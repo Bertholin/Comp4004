@@ -79,7 +79,14 @@ public class RankingTests extends AbstractSeleniumTest {
     	
       	//Handle prompt to improve user 2 with "0:rank-a clubs"
     	//13: missing code
-   
+    	this.indexPage.connect.click();
+		this.delay(3);
+		this.indexPage.setNumberPlayers(3);
+		this.indexPage.open.click();
+		this.delay(3);
+		ChromeDriver p2 = quickConnectAnotherUser();
+		ChromeDriver p3 = quickConnectAnotherUser();
+		this.indexPage.start.click();
     	// user 1 chooses to stay  
     	//14: missing code     
     	
