@@ -79,6 +79,7 @@ public class RankingTests extends AbstractSeleniumTest {
     	
       	//Handle prompt to improve user 2 with "0:rank-a clubs"
     	//13: missing code
+    	/*
     	this.indexPage.connect.click();
 		this.delay(3);
 		this.indexPage.setNumberPlayers(3);
@@ -87,9 +88,21 @@ public class RankingTests extends AbstractSeleniumTest {
 		ChromeDriver p2 = quickConnectAnotherUser();
 		ChromeDriver p3 = quickConnectAnotherUser();
 		this.indexPage.start.click();
+		this.delay(3);
+		*/
+    	
+    	this.delay(10);
+    	System.out.println("**********************************************************************");
+		String[] players = this.indexPage.getUsetTexts();
+		for (int i = 0; i < players.length; ++i) {
+			System.out.println("Player UID is " + players[i]);
+		}
+		System.out.println("**********************************************************************");
+
     	// user 1 chooses to stay  
     	//14: missing code     
-    	
+		
+		
     	//user 2 chooses to hit   	
     	//15: missing code  
     	
