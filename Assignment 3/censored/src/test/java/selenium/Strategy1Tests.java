@@ -101,6 +101,8 @@ public class Strategy1Tests extends AbstractSeleniumTest {
 		this.waitForDisplayed(this.indexPage.rig).isEnabled();
 		this.indexPage.rig.click();
 
+		/************************* Set initial hands ************************/
+
 		// Player highcard
 		this.waitForAlert();
 		Alert a = this.webDriver.switchTo().alert();
@@ -118,7 +120,7 @@ public class Strategy1Tests extends AbstractSeleniumTest {
 		a.sendKeys("rank-2 clubs, rank-6 hearts, rank-6 clubs, rank-6 spades, rank-6 diams");
 		a.accept();
 
-		// other 3 Three Pair change 2,4
+		// other 3 Three of a kind change 2,4
 		this.waitForAlert();
 		a = this.webDriver.switchTo().alert();
 		a.sendKeys("rank-7 diams, rank-7 spades, rank-4 diams, rank-7 clubs, rank-6 diams");
@@ -153,5 +155,63 @@ public class Strategy1Tests extends AbstractSeleniumTest {
 	}
 
 	// more tests
+	@Test
+	public void S1Test3() {
+		this.indexPage.connect.click();
+		this.waitForDisplayed(this.indexPage.open).isEnabled();
+		this.delay(2);
+		this.indexPage.open.click(); // defaults is 1 player
+		this.waitForDisplayed(this.indexPage.rig).isEnabled();
+		this.indexPage.rig.click();
 
+		// Player highcard
+		this.waitForAlert();
+		Alert a = this.webDriver.switchTo().alert();
+		a.sendKeys("rank-2 hearts, rank-3 spades, rank-4 clubs, rank-9 spades, rank-k clubs");
+		a.accept();
+
+		// other 1 Straight flush
+		a = this.webDriver.switchTo().alert();
+		a.sendKeys("rank-2 spades, rank-3 spades, rank-4 spades, rank-5 spades, rank-6 spades");
+		a.accept();
+
+		// other 2 full house
+		this.waitForAlert();
+		a = this.webDriver.switchTo().alert();
+		a.sendKeys("rank-2 clubs, rank-6 hearts, rank-6 clubs, rank-6 spades, rank-2 diams");
+		a.accept();
+
+		// other 3  Pair change 2,4
+		this.waitForAlert();
+		a = this.webDriver.switchTo().alert();
+		a.sendKeys("rank-7 diams, rank-10 spades, rank-4 diams, rank-7 clubs, rank-6 diams");
+		a.accept();
+
+		// gets the user ids
+		String[] players = this.indexPage.getUsetTexts();
+		// the second AI should hit
+		assertThat(this.indexPage.hasText(players[0] + " choose to STAY"), is(true));
+
+		// the second AI should hit
+		assertThat(this.indexPage.hasText(players[1] + " choose to STAY"), is(true));
+
+		// the third AI should hit and wait for a prompt to get new cards
+		this.waitForAlert();
+		a = this.webDriver.switchTo().alert();
+		a.sendKeys("1:rank-4 clubs, 4:rank-4 hearts");
+		a.accept();
+		assertThat(this.indexPage.hasText(players[2] + " choose to HIT"), is(true));
+
+		// player choose to stay
+		this.delay(3);
+		this.indexPage.stay.click();
+		
+		// results
+		assertThat(this.indexPage.hasText(players[0] + " won with a score of STRAIGHT_FLUSH, ranked 1!"), is(true));
+		assertThat(this.indexPage.hasText(players[2] + " lost with a score of FULL_HOUSE, ranked 2!"), is(true));
+		assertThat(this.indexPage.hasText(players[1] + " lost with a score of FULL_HOUSE, ranked 3!"), is(true));
+		assertThat(this.indexPage.hasText(players[3] + " lost with a score of HIGH_CARD, ranked 4!"), is(true));
+
+		this.indexPage.disconnect.click();
+	}
 }
