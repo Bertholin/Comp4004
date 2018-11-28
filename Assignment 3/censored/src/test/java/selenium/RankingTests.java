@@ -118,9 +118,10 @@ public class RankingTests extends AbstractSeleniumTest {
 
 		/***************** Check results ******************/
 
+		this.delay(3);
 		// user 1 wins with a royal flush: ranked 1
 		// 18: missing code
-		assertThat(this.indexPage.hasText(players[0] + " won with a score of ROYAL_FLUSH, ranked 1"), is(true));
+		assertThat(this.indexPage.hasText(players[0] + " won with a score of ROYAL_FLUSH, ranked 1!"), is(true));
 		// user 2 loses with two pairs, ranked 3
 		// 19: missing code
 		assertThat(this.indexPage.hasText(players[1] + " lost with a score of TWO_PAIR, ranked 3!"), is(true));
@@ -252,10 +253,12 @@ public class RankingTests extends AbstractSeleniumTest {
 		// Handle prompt to improve user 1
 		// with “0:rank-7 clubs,1:rank-j clubs,4:rank-5 diams"
 		// 25: missing code
+		String[] players = this.indexPage.getUsetTexts();
 		this.waitForAlert();
 		a = this.webDriver.switchTo().alert();
 		a.sendKeys("0:rank-7 clubs,1:rank-j clubs,4:rank-5 diams");
 		a.accept();
+		assertThat(this.indexPage.hasText(players[0] + " choose to HIT"), is(true));
 		
 		// Handle prompt to improve user 2
 		// with ”0:rank-4 spades,1:rank-a clubs"
@@ -264,8 +267,9 @@ public class RankingTests extends AbstractSeleniumTest {
 		a = this.webDriver.switchTo().alert();
 		a.sendKeys("0:rank-4 spades,1:rank-a clubs");
 		a.accept();
+		assertThat(this.indexPage.hasText(players[1] + " choose to HIT"), is(true));
 		
-		String[] players = this.indexPage.getUsetTexts();
+		
 
 		// user 1, user 2 hit and user 3 stays
 		// 27: missing code
