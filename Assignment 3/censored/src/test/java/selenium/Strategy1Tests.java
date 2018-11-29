@@ -213,5 +213,6 @@ public class Strategy1Tests extends AbstractSeleniumTest {
 		assertThat(this.indexPage.hasText(players[3] + " lost with a score of HIGH_CARD, ranked 4!"), is(true));
 
 		this.indexPage.disconnect.click();
+		
 	}
 }
