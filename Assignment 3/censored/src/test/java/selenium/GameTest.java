@@ -68,6 +68,7 @@ public class GameTest extends AbstractSeleniumTest {
 		this.indexPage.hit.click();
 		this.delay(3);
 		assertThat(this.indexPage.hasText("You decided to HIT. Sending to server"), is(true));
+		this.indexPage.done.click();
 		this.indexPage.disconnect.click();
 	}
 

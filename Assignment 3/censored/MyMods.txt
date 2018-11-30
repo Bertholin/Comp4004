@@ -1,9 +1,8 @@
-Added things:
--------------
-
-
-
 Error Fixes:
 ------------
-in strategy2Test, Removed the last bracket at end of file
-in RankingTest, fixed a line that was missing a / for a comment next to 13 requirement
+in strategy2Test, Removed the last bracket at end of file on line 64
+in RankingTest, fixed a line that was missing a / for a comment next to 23 requirement on line 174'
+	also changed lines 97 and 98 because the following codes dont work.
+			this.indexPage.card1.click();
+    		this.indexPage.card3.click();
+Updated the chromedriver.exe with the most recent version driver from http://chromedriver.chromium.org/downloads
