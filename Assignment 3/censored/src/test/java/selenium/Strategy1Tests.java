@@ -215,4 +215,4 @@ public class Strategy1Tests extends AbstractSeleniumTest {
 		this.indexPage.disconnect.click();
 		
 	}
-}
+}	

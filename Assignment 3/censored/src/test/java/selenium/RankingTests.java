@@ -238,7 +238,7 @@ public class RankingTests extends AbstractSeleniumTest {
 		// other 2, 3 of a kind
 		this.waitForAlert();
 		a = this.webDriver.switchTo().alert();
-		a.sendKeys("rank-j clubs, rank-j spades, rank-j spades, rank-3 diams, rank-8 spades");
+		a.sendKeys("rank-j clubs, rank-j hearts, rank-j spades, rank-3 diams, rank-8 spades");
 		a.accept();
 
 		// other 3 straight flush
@@ -295,7 +295,7 @@ public class RankingTests extends AbstractSeleniumTest {
 		a.sendKeys("0:rank-4 spades, 1:rank-7 clubs, 2:rank-a clubs,3:rank-q spades,4:rank-5 spades");
 		a.accept();
 		
-		this.delay(30);
+		this.delay(5);
 		/***************** Check results ******************/
 
 		// 29: missing code for the outcome
